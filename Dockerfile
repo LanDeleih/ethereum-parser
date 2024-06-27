@@ -10,11 +10,14 @@ COPY go.sum go.sum
 RUN go mod download
 
 COPY application/parser.go main.go
-COPY usecases usecases
+COPY common common
+COPY publisher publisher
+COPY domain domain
+COPY usecase usecase
 COPY application application
 COPY in-memory-storage in-memory-storage
+COPY json-rpc json-rpc
 COPY rest rest
-COPY pkg pkg
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=${GOARCH} go build -a -o app main.go
 
