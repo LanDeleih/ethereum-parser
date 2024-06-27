@@ -12,7 +12,7 @@ import (
 type ParserUseCase struct {
 	blockProvider         provider.BlockProvider
 	transactionExtractor  access.TransactionExtractor
-	subscribtionPersister access.SubscriptionPersister
+	subscriptionPersister access.SubscriptionPersister
 }
 
 func NewParserUseCase(
@@ -23,7 +23,7 @@ func NewParserUseCase(
 	return &ParserUseCase{
 		blockProvider:         blockProvider,
 		transactionExtractor:  transactionExtractor,
-		subscribtionPersister: subscribtionPersister,
+		subscriptionPersister: subscribtionPersister,
 	}
 }
 
@@ -39,7 +39,7 @@ func (p *ParserUseCase) GetCurrentBlock() int {
 
 func (p *ParserUseCase) Subscribe(address string) bool {
 	subscription := domain.NewSubscription(address)
-	return p.subscribtionPersister.Subscribe(subscription)
+	return p.subscriptionPersister.Subscribe(subscription)
 }
 
 func (p *ParserUseCase) GetTransactions(address string) []domain.Transaction {
