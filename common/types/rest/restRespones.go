@@ -30,9 +30,9 @@ func ToBusinessError(
 	responseWriter http.ResponseWriter,
 	message error,
 ) {
-	responseWriter.WriteHeader(http.StatusConflict)
+	responseWriter.WriteHeader(http.StatusOK)
 	responseWriter.Header().Set(contentTypeHeader, contentTypeJSON)
-	response, marshalErr := json.Marshal(message)
+	response, marshalErr := json.Marshal(message.Error())
 	if marshalErr != nil {
 		log.Println("can't marshal response error", marshalErr)
 	}
