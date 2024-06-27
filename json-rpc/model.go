@@ -26,12 +26,9 @@ type TransactionModelResult struct {
 }
 
 type TransactionModel struct {
-	BlockHash   string `json:"blockHash,omitempty"`
-	BlockNumber string `json:"blockNumber,omitempty"`
-	From        string `json:"from,omitempty"`
-	Hash        string `json:"hash,omitempty"`
-	To          string `json:"to,omitempty"`
-	Value       string `json:"value,omitempty"`
+	From  string `json:"from,omitempty"`
+	To    string `json:"to,omitempty"`
+	Value string `json:"value,omitempty"`
 }
 
 func (r BlockModelResponse) toDomainBlock() (domain.Block, error) {
@@ -47,11 +44,8 @@ func (r BlockModelResponse) toDomainBlock() (domain.Block, error) {
 
 func (r TransactionModel) toDomain() domain.Transaction {
 	return domain.Transaction{
-		BlockNumber: r.BlockNumber,
-		BlockHash:   r.BlockHash,
-		Hash:        r.Hash,
-		From:        r.From,
-		To:          r.To,
-		Value:       r.Value,
+		From:  r.From,
+		To:    r.To,
+		Value: r.Value,
 	}
 }
