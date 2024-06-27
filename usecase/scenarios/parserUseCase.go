@@ -18,12 +18,12 @@ type ParserUseCase struct {
 func NewParserUseCase(
 	blockProvider provider.BlockProvider,
 	transactionExtractor access.TransactionExtractor,
-	subscribtionPersister access.SubscriptionPersister,
+	subscriptionPersister access.SubscriptionPersister,
 ) *ParserUseCase {
 	return &ParserUseCase{
 		blockProvider:         blockProvider,
 		transactionExtractor:  transactionExtractor,
-		subscriptionPersister: subscribtionPersister,
+		subscriptionPersister: subscriptionPersister,
 	}
 }
 
